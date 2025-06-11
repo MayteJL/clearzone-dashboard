@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sensor Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Iconos: Font Awesome (opcional) -->
+  <script src="https://kit.fontawesome.com/tu_codigo.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <aside class="sidebar">
-    <h2>Sensor Dashboard</h2>
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo" />
+      <h1>ClearZone</h1>
+    </div>
     <nav>
       <a href="#">Dashboard</a>
       <a href="#">Acerca de</a>
@@ -17,20 +23,32 @@
 
   <main>
     <header>
-      <h1>¡Buen día!</h1>
-      <p id="fecha"></p>
+      <h2>¡Buen día!</h2>
+      <p>Última lectura: <span id="last-reading">--</span></p>
     </header>
 
-<section class="cards">
-  <div class="card"><h3>MQ135</h3><p id="mq135">-</p></div>
-  <div class="card"><h3>CO2</h3><p id="co2">-</p></div>
-  <div class="card"><h3>TVOC</h3><p id="tvoc">-</p></div>
-</section>
-<p>Última lectura: <span id="fecha"></span></p>
+    <section class="cards">
+      <div class="card">
+        <h3>MQ135</h3>
+        <p id="mq135">-</p>
+      </div>
+      <div class="card">
+        <h3>CO2</h3>
+        <p id="co2">-</p>
+      </div>
+      <div class="card">
+        <h3>TVOC</h3>
+        <p id="tvoc">-</p>
+      </div>
+    </section>
+
+    <section class="alert" id="alert" hidden>
+      <i class="fas fa-exclamation-triangle"></i>
+      ¡Alerta! Niveles peligrosos detectados.
+    </section>
 
     <section class="charts">
-      <canvas id="tempChart"></canvas>
-      <canvas id="distChart"></canvas>
+      <canvas id="mq135-chart"></canvas>
     </section>
   </main>
 

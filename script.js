@@ -1,31 +1,25 @@
-async function obtenerDatos() {
+async function loadData() {
   try {
-    const response = await fetch("https://clearzoneapi.onrender.com/datos");
+    const response = await fetch("https://api.example.com/datos"); // tu endpoint real
     const data = await response.json();
-    const ultimo = data[data.length - 1];
 
-    // Muestra los datos en el dashboard
-    document.getElementById("mq135").textContent = ultimo.mq135;
-    document.getElementById("co2").textContent = ultimo.co2 + " ppm";
-    document.getElementById("tvoc").textContent = ultimo.tvoc + " ppb";
-    document.getElementById("fecha").textContent = new Date(ultimo.fecha).toLocaleString();
+    document.getElementById("mq135").textContent = data.mq135;
+    document.getElementById("co2").textContent = data.co2;
+    document.getElementById("tvoc").textContent = data.tvoc;
+    document.getElementById("last-reading").textContent = new Date(data.fecha).toLocaleString();
 
-    // Actualiza gráficos si quieres
-    labels.push(new Date(ultimo.fecha).toLocaleTimeString());
-    mq135Data.push(ultimo.mq135);
-
-    if (labels.length > 15) {
-      labels.shift();
-      mq135Data.shift();
-    }
-    mq135Chart.update();
-
-    // ⚠️ Alerta por niveles altos de humo
-    if (ultimo.mq135 > 300 || ultimo.co2 > 1000 || ultimo.tvoc > 300) {
-      alert("⚠️ ¡Niveles peligrosos detectados!");
+    // Verifica alerta
+    if (data.mq135 > 50) {
+      document.getElementById("alert").hidden = false;
+    } else {
+      document.getElementById("alert").hidden = true;
     }
 
-  } catch (e) {
-    console.error("Error obteniendo datos:", e);
+    // Aquí podrías actualizar gráficas con Chart.js
+  } catch (error) {
+    console.error("Error cargando datos:", error);
   }
 }
+
+// Llama a la función al cargar la página
+window.onload = loadData;
