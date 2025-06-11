@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ClearZone Dashboard</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>ClearZone</h2>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#">Acerca de</a>
+    </nav>
+  </aside>
+
+  <main class="dashboard">
+    <header>
+      <h1>¡Buen día!</h1>
+      <p>Última lectura: <span id="last-update">--</span></p>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <h3>MQ135</h3>
+        <p id="mq135-value">--</p>
+      </div>
+      <div class="card">
+        <h3>CO2</h3>
+        <p id="co2-value">--</p>
+      </div>
+      <div class="card">
+        <h3>TVOC</h3>
+        <p id="tvoc-value">--</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/src/script.js"></script>
+</body>
+</html>
