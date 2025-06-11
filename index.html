@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sensor Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>Sensor Dashboard</h2>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#">Acerca de</a>
+    </nav>
+  </aside>
+
+  <main>
+    <header>
+      <h1>¡Buen día!</h1>
+      <p id="fecha"></p>
+    </header>
+
+<section class="cards">
+  <div class="card"><h3>MQ135</h3><p id="mq135">-</p></div>
+  <div class="card"><h3>CO2</h3><p id="co2">-</p></div>
+  <div class="card"><h3>TVOC</h3><p id="tvoc">-</p></div>
+</section>
+<p>Última lectura: <span id="fecha"></span></p>
+
+    <section class="charts">
+      <canvas id="tempChart"></canvas>
+      <canvas id="distChart"></canvas>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
